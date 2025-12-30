@@ -76,7 +76,7 @@
 <body>
     <div class="container">
         <h1>🔒 Clickjacking Vulnerability PoC</h1>
-        <h2>Target: Bibliotheek Den Haag Shared Login Portals (Multiple Subdomains)</h2>
+        <h2>Target: Bibliotheek Den Haag Shared Login Portals (Active Subdomains)</h2>
         
         <div class="warning">
             <strong>⚠️ WARNING:</strong> This is a proof of concept demonstration only. 
@@ -88,11 +88,11 @@
         </div>
         
         <h3>Demonstration</h3>
-        <p>The iframe below embeds one of the vulnerable login portals[](https://smart-acc.bibliotheekdenhaag.nl). 
-        The same vulnerability affects all listed subdomains as they share the identical login interface.</p>
+        <p>The iframe below embeds one of the currently active vulnerable login portals[](https://vsmart.bibliotheekdenhaag.nl). 
+        The same vulnerability affects all active subdomains listed below as they share the identical login interface.</p>
         
         <div class="iframe-container">
-            <iframe src="https://smart-acc.bibliotheekdenhaag.nl/" 
+            <iframe src="https://vsmart.bibliotheekdenhaag.nl/" 
                     title="Bibliotheek Den Haag Login Portal"
                     sandbox="allow-same-origin allow-scripts allow-forms allow-top-navigation">
             </iframe>
@@ -100,17 +100,17 @@
         </div>
         
         <div class="info">
-            <h4>📋 Affected Subdomains</h4>
+            <h4>📋 Active Affected Subdomains</h4>
             <ul>
-                <li>https://smart-acc.bibliotheekdenhaag.nl</li>
                 <li>https://vinsight-acc.bibliotheekdenhaag.nl</li>
                 <li>https://vsmart.bibliotheekdenhaag.nl</li>
                 <li>https://vinsight.bibliotheekdenhaag.nl</li>
             </ul>
+            <p><strong>Note:</strong> https://smart-acc.bibliotheekdenhaag.nl is currently unreachable/down.</p>
             
             <h4>📋 Attack Scenario</h4>
             <ol>
-                <li>Attacker creates a malicious page embedding any of the login URLs in an iframe</li>
+                <li>Attacker creates a malicious page embedding any of the active login URLs in an iframe</li>
                 <li>Overlays deceptive content (e.g., fake "Log in to reserve a free book" button)</li>
                 <li>User believes they are on a legitimate library promotion</li>
                 <li>User enters credentials into the hidden real login form</li>
